@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -34,6 +34,12 @@ const RealTimeMap: React.FC = () => {
     new L.LatLng(51.505, -0.09)
   ); // Initial center of the map
   const [zoomLevel, setZoomLevel] = useState<number>(13); // Initial zoom level
+  const [isClient, setIsClient] = useState(false); // Check if the code is running on the client
+
+  // Ensure that the component is rendered only on the client
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Capture zoom, pan, and double-click events using the map events
   const MapEvents: React.FC = () => {
@@ -55,6 +61,11 @@ const RealTimeMap: React.FC = () => {
 
     return null;
   };
+
+  if (!isClient) {
+    // Render nothing on the server or while determining the client
+    return null;
+  }
 
   return (
     <div>

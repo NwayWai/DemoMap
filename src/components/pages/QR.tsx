@@ -1,5 +1,4 @@
 "use client";
-// QRCodeGenerator.tsx
 import React, { useEffect, useState } from "react";
 import QRCode from "qrcode";
 

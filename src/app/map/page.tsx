@@ -1,7 +1,12 @@
-import RealTimeMap from "@/components/pages/Map";
+import dynamic from "next/dynamic";
 import React from "react";
 
-const Map = () => {
+// Dynamically import RealTimeMap with SSR disabled
+const RealTimeMap = dynamic(() => import("@/components/pages/Map"), {
+  ssr: false,
+});
+
+const MapPage = () => {
   return (
     <div>
       <RealTimeMap />
@@ -9,4 +14,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default MapPage;
