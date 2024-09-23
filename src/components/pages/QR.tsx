@@ -2,12 +2,6 @@
 // QRCodeGenerator.tsx
 import React, { useEffect, useState } from "react";
 import QRCode from "qrcode";
-import {
-  HeartIcon,
-  StarIcon,
-  CheckCircleIcon,
-  XCircleIcon,
-} from "@heroicons/react/24/outline";
 
 interface QRCodeGeneratorProps {
   value: string;
